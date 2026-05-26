@@ -93,9 +93,128 @@
 //     }else if(unit=="F"){
 //         result+=Math.round((value-32)*5/9);
 //     }else{
-//         alert("Uknow unit");
+//         alert("Unknow unit");
 //     }
 //     return result;
 // }
 
 // document.write(convertTemp(value,unit));
+
+// -------------------------------------------------------------------
+
+// ამოცანა 6 — პალინდრომი
+
+// let str = prompt("Input the word");
+// let reverse ="";
+
+// function isPalindrome(str){
+//     for(let i=str.length-1;i>=0;i--){
+//         reverse+=str[i];
+//     }
+//     let compare=str.localeCompare(reverse,undefined,{sensitivity: 'base'})===0;
+//     if(compare===true){
+//         console.log(`(${str}) is palindrome word`);
+//     }else{
+//         console.log(`(${str}) is not palindrome word`);
+//     }
+//     return reverse;
+// }
+
+// console.log(isPalindrome(str));
+
+// ------------------------------------------------------------
+
+// ამოცანა 7 — მარტივი რიცხვი
+
+// let n =parseInt(prompt("Input the number"));
+
+// function isPrime(n){
+//     let count=0;
+//     if(n<1){
+//         alert("Prime number cant be less than 1");
+//     }else{
+//         for(let i=1;i<=n;i++){
+//             if(n%i===0){
+//                 count++;
+//             }
+//         }
+//         if(count===2){
+//             console.log(`(${n}) is a prime number`);
+//         }else{
+//             console.log(`(${n}) is not a prime number`);
+//         }
+//     }
+//     return n;
+// }
+
+// console.log(isPrime(n));
+
+// ------------------------------------------------------------
+
+// ამოცანა 8 — ფაქტორიალი
+
+// const n=parseInt(prompt("Input the number"));
+
+// function factorial(n){
+//     let sum=1;
+//     if(isNaN(n) || n<0){
+//         alert("Error");
+//     }else{
+        
+//         for(let i=1; i<=n;i++){
+//             sum*=i;
+//         }
+//     }
+//     return sum;
+// }
+// console.log(factorial(n));
+
+// ------------------------------------------------------------
+
+// ამოცანა 9 — ფიბონაჩის რიგი
+
+// const n=+prompt("Input the number");
+
+// function fibonacci(n){
+//     let start=0;
+//     let after=1;
+//     let next;
+//     if(n<0){
+//         alert("Error");
+//     }else if(n===0){
+//         next=1;
+//     }else if(n===1){
+//         next=1;
+//     }
+//     else{
+//         for(let i=2;i<=n;i++){
+//             next=start+after;
+//             start=after;
+//             after=next;
+//         }
+//     }
+//     return next;
+// }
+
+// console.log(fibonacci(n));
+
+// -------------------------------------------------------------
+
+// ამოცანა 10 — ციფრების ჯამი
+
+// let n=+prompt("Input the number");
+// function sumDigits(n){
+//     let m=Math.abs(n).toString();
+//     let sum=0;
+//     for(let i=0; i<m.length;i++){
+//         sum+=+m[i];
+//     }
+//     if(n<0){
+//         sum*=-1;
+//     }
+//     return sum;
+// }
+
+// console.log(sumDigits(n));
+
+// ----------------------------------------------------------------
