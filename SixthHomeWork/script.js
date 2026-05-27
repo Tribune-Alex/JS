@@ -218,3 +218,108 @@
 // console.log(sumDigits(n));
 
 // ----------------------------------------------------------------
+
+// ამოცანა 11 — სიტყვების დათვლა
+
+
+// let str=prompt("Input the text").trim();
+// console.log(str);
+
+// function countWords(str){
+//     let count=0;
+//     let newstr=str.split(" ");
+//     for(let i=0;i<newstr.length;i++){
+//         if(newstr[i]!==""){
+//             count++;
+//         }  
+//     }
+    
+//     return count;
+// }
+
+// console.log(`The are (${countWords(str)}) words in your text`);
+
+// -----------------------------------------------------------------
+
+// ამოცანა 12 — ყველაზე გრძელი სიტყვა
+
+// let str=prompt("Input the text").trim();
+// console.log(str);
+
+// function longestWord(str){
+//     let total=0;
+//     let result="";
+//     let newstr=str.split(" ");
+//     for(let i=0; i<newstr.length;i++){
+//        if(newstr[i].length>total){
+//         total=newstr[i].length;
+//         result=newstr[i];
+//        }
+//     }
+//     return result;
+// }
+
+// console.log(`(${longestWord(str)}) is the longest word in the text`);
+
+// ---------------------------------------------------------------------------
+
+// ამოცანა 13 — დუბლიკატების წაშლა
+
+
+// let number=+prompt("Input the number");
+
+// function removeDuplicates(number){
+//     let str=number.toString();
+//     let arr=Array.from(String(str),Number);
+//     let newarr=[];
+//     for(let i=0;i<arr.length;i++){
+//         if(arr.indexOf(arr[i])==arr.lastIndexOf(arr[i])){
+//             arr.slice(i,1);
+//             newarr.push(arr[i]);
+//         }
+//     }
+    
+//     return newarr;
+// }
+
+// console.log(removeDuplicates(number));
+
+// ----------------------------------------------------------------
+
+// ამოცანა 14 — მასივების გადაკვეთა
+
+// let first=+prompt("Input the first number");
+// let second=+prompt("Input the second number");
+// let arr1=Array.from(String(first),Number);
+// let arr2=Array.from(String(second),Number);
+
+// function intersect(arr1, arr2){
+//     let arr3=[];
+//     for(let i=0;i<arr1.length;i++){
+//         for(let j=0;j<arr2.length;j++){
+//             if(arr1[i]===arr2[j]){
+//                 arr3.push(arr1[i]);
+//             }
+//         }
+//     }
+//     return arr3;
+// }
+
+// console.log(intersect(arr1,arr2));
+
+// ---------------------------------------------------------------
+
+// ამოცანა 15 — გამრავლების ცხრილი სტრინგად
+
+// const n = parseInt(prompt("Input the number"));
+
+// function multiTable(n){
+//     let sum;
+//     for(let i=1;i<11;i++){
+//         sum=n*i;
+//         console.log(`${n} X ${i} = ${sum}`);
+//     }
+    
+// }
+
+// multiTable(n);
