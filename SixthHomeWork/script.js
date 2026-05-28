@@ -323,3 +323,111 @@
 // }
 
 // multiTable(n);
+
+//----------------------------------------------------------------------------- 
+
+// ამოცანა 16 — სტრინგის შებრუნება ლუპით
+
+// const str = prompt("Input the word");
+// console.log(str);
+// function reverseStr(str){
+//     let arr = Array.from(String(str));
+//     let reverse="";
+//     for(let i=arr.length-1;i>=0;i-- ){
+//         reverse+=arr[i];
+//     }
+//     return reverse;
+// }
+
+// console.log(reverseStr(str));
+
+// ----------------------------------------------------------------------
+
+// ამოცანა 17 — caesarCipher
+
+// let str=prompt("Input the word").toLowerCase();
+// let shift=parseInt(prompt("Input the number"));
+
+// function caesarCipher(str, shift){
+//     let newword="";
+//     if(shift>=1 && shift<=25){
+//         for(let i=0;i<str.length;i++){
+//             newword+=String.fromCharCode(str.charCodeAt(i)+shift);
+//         }
+//     }
+//     return newword;
+// }
+
+// console.log(caesarCipher(str,shift));
+
+// -----------------------------------------------------------------------
+
+// ამოცანა 18 — მიმდინარე მაქსიმუმების მასივი
+
+// const num =prompt("Input the number").split(" ");
+
+// function runningMax(num){
+//     let arr=Array.from(String(num),Number);
+//     let max=0;
+//     let digit=0;
+//     let newarr=[];
+//     for(let i=0;i<arr.length;i++){
+//         if(arr[i]>max){
+//             max=arr[i];
+//             digit=max;
+//             newarr.push(digit);
+//         }else if(arr[i]<max){
+//             newarr.push(digit);
+//         }
+//     }
+//     return newarr;
+// }
+
+// console.log(runningMax(num));
+
+// -----------------------------------------------------------------
+
+// ამოცანა 19 — FizzBuzz მასივში
+
+// const n=+prompt("Input the number");
+
+// function fizzBuzzArray(n){
+//     let arr=[];
+//     for(let i=1;i<=n;i++){
+//         if(i%3===0 && i%5===0){
+//             arr.push("FizzBuzz");
+//         }else if(i%5===0){
+//             arr.push("Buzz");
+//         }else if(i%3===0){
+//             arr.push("Fizz");
+//         }else{
+//             arr.push(i);
+//         }
+//     }
+//     return arr;
+// }
+
+// console.log(fizzBuzzArray(n));
+
+// ---------------------------------------------------------------
+
+// ამოცანა 20 — რიცხვების კლასიფიკატორი
+
+// function classifyNumbers(arr){
+//     let possite=0;
+//     let negative=0;
+//     let zero=0;
+//     for(let i=0;i<arr.length;i++){
+//         if(arr[i]>0){
+//             possite++;
+//         }else if(arr[i]<0){
+//             negative++;
+//         }else if(arr[i]===0){
+//             zero++;
+//             possite++;
+//         }
+//     }
+//     console.log(`The array contains(positive:(${possite})|negative:(${negative})|Zero:(${zero}) digits`);
+// }
+
+// classifyNumbers([-7,6,0,0,-8,10]);
