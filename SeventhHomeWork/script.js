@@ -372,3 +372,107 @@
 
 // console.log(digit);
 
+// ---------------------------------------------------------------------
+
+// 17.ორი მატრიცის ერთნაირი პოზიციების პოვნა
+
+// let matrix1 = [
+//   [1, 2],
+//   [3, 4]
+// ];
+
+// let matrix2 = [
+//   [1, 5],
+//   [6, 4]
+// ];
+
+// let count=0;
+// for(let i=0;i<matrix1.length;i++){
+//     for(let j=0;j<matrix1[i].length;j++){
+        
+//         let current=matrix1[i][j];
+        
+//     for(let k=0;k<matrix2.length;k++){
+//         for(let h=0;h<matrix2[k].length;h++){
+//             if(matrix2[k][h]==current){
+//                 count++;
+//             }
+//         }
+//     }
+//     }
+    
+// }
+// console.log(count);
+
+// ----------------------------------------------------------------------
+
+// 18.პალინდრომი row-ებში
+
+// let matrix = [
+//   [1, 2, 1],
+//   [3, 4, 5],
+//   [7, 8, 7]
+// ];
+
+
+// for(let i of matrix){
+//     let reverse=[];
+//     for(let j of i){
+//         reverse.unshift(j);
+//     }
+//     if(i.join("")===reverse.join("")){
+//         console.log(`${i} is polyndrom`);
+//     }else{
+//         console.log(`${i} is not polyndrom`);
+//     }
+    
+// }
+
+// -----------------------------------------------------------------
+
+// 19.მატრიცის border ელემენტების დაბეჭდვა
+
+// let matrix = [
+//   [1, 2, 3, 4],
+//   [5, 6, 7, 8],
+//   [9, 10, 11, 12],
+//   [13, 14, 15, 16]
+// ];
+
+// let arr=[];
+// for(let i=0;i<matrix[0].length;i++){
+//     arr.push(matrix[0][i]);
+// }
+// for(let i=1; i<matrix.length;i++){
+//     arr.push(matrix[i][matrix.length-1]);
+// }
+// for(let i=matrix.length-2;i>=0;i--) {
+//     arr.push(matrix[matrix.length-1][i]);
+// }
+// for(let i=matrix.length-2;i>0;i--){
+//     arr.push(matrix[i][0]);
+// }
+// console.log(arr);
+
+// ---------------------------------------------------------------------
+
+// 20.X ფორმის ელემენტების დაბეჭდვა
+
+// let matrix = [
+//   [1, 2, 3, 4],
+//   [5, 6, 7, 8],
+//   [9,10,11,12],
+//   [13,14,15,16]
+// ];
+// let arr=[];
+// let arr2=[];
+// let count=0;
+// let xmaker=matrix.length-1;
+// for(let i of matrix){
+//     arr.push(i[count]);
+//     count++;
+//     arr2.push(i[xmaker]);
+//     xmaker--;
+// }
+
+// console.log(arr.concat(arr2));
