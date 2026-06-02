@@ -152,9 +152,223 @@
 
 // console.log(newmatrix);
 
+// ------------------------------------------------------------
+
+// 9. row-ების შებრუნება
+
+// let matrix = [
+//   [1, 2, 3],
+//   [4, 5, 6]
+// ];
+
+// let newmatrix=[];
+
+// for(let i of matrix){
+//     let arr=[];
+//     for(let j of i){
+//         arr.unshift(j);
+//     }
+//     newmatrix.push(arr);
+// }
+
+// console.log(newmatrix);
+
+// ------------------------------------------------------------
+
+// 10. კონკრეტული რიცხვის ძებნა მატრიცაში
+
+// let matrix = [
+//   [4, 8, 2],
+//   [7, 1, 9],
+//   [3, 6, 5]
+// ];
+
+// for(let i of matrix){
+//     let target=1;
+//     if(i.includes(target)){
+//         console.log(`The digit ${target} in array:[${i}]`);
+//     }else if(i.includes(target)===false){
+//         console.log(`There is no ${target} in [${i}]`);
+//     }
+ 
+// }
+
+// ----------------------------------------------------------------
+
+// 11. მატრიცის 90°-ით შემობრუნება
+
+// let matrix = [
+//   [1, 2, 3],
+//   [4, 5, 6],
+//   [7, 8, 9]
+// ];
+
+// let newmatrix=[];
+// let count=0;
+// for(let i=0;i<matrix.length;i++){
+//     let row=[];
+//     for(j of matrix){
+//         row.unshift(j[i]);
+//     }
+//     newmatrix.push(row);
+// }
+// console.log(newmatrix);
+
+// -------------------------------------------------------------
+
+// 12.row-ების დალაგება ზრდადობით (sort() გარეშე)
+
+// let matrix = [
+//   [7, 2, 9],
+//   [5, 1, 4],
+//   [8, 3, 6]
+// ];
+// let newmatrix=[];
+// for(let i of matrix){
+//     let row=i;
+//     for(let i=0;i<row.length;i++){
+//         for(let j=i+1;j<row.length;j++){
+//             if(row[i]>row[j]){
+//                 let digit=row[i];
+//                 row[i]=row[j];
+//                 row[j]=digit;
+//             }
+//         }
+//     }
+//     newmatrix.push(row);
+// }
+
+// console.log(newmatrix);
+
+// --------------------------------------------------------------------
+
+// 13.მატრიცაში დუბლიკატების პოვნა
+
+// let matrix = [
+//   [1, 2, 3],
+//   [4, 2, 5],
+//   [6, 1, 7]
+// ];
+
+// let arr=[];
+
+// for(let j=0;j<matrix.length;j++){
+//     for(let h=0;h<matrix.length;h++){
+//         let cur=matrix[j][h];
+//         for(let x=0;x<matrix.length;x++){
+//             for(let y=0;y<matrix[x].length;y++){
+//                 if(x===j && y===h) continue;
+//                 if(matrix[x][y]===cur){
+//                     if(!arr.includes(cur)){
+//                         arr.push(cur);
+//                     }
+//                 }
+//             }
+//         }
+//     }
+// }
+// console.log(arr);
+
+// --------------------------------------------------------------------------
+
+// 14.სპირალურად დაბეჭდვა
+
+// let matrix = [
+//   [1, 2, 3],
+//   [4, 5, 6],
+//   [7, 8, 9]
+// ];
+
+// let result = [];
+
+// let toprow = 0;
+// let bottom = matrix.length - 1;
+// let left = 0;
+// let right = matrix[0].length - 1;
+
+// while (toprow <= bottom && left <= right) {
+
+  
+//   for (let i = left; i <= right; i++) {
+//     result.push(matrix[toprow][i]);
+//   }
+//   toprow++;
+
+  
+//   for (let i = toprow; i <= bottom; i++) {
+//     result.push(matrix[i][right]);
+//   }
+//   right--;
+
+  
+//   if (toprow <= bottom) {
+//     for (let i = right; i >= left; i--) {
+//       result.push(matrix[bottom][i]);
+//     }
+//     bottom--;
+//   }
+
+  
+//   if (left <= right) {
+//     for (let i = bottom; i >= toprow; i--) {
+//       result.push(matrix[i][left]);
+//     }
+//     left++;
+//   }
+// }
+
+// console.log(result);
+
+// --------------------------------------------------------------
+
+// 15.ვარსკვლავების პირამიდა
+
+// let row=5;
+
+// for(let i=0;i<row;i++){
+//     let arr=[];
+//     for(let j=0;j<i;j++){
+//         arr.push("*");
+//     }
+//     console.log(arr.join(""));
+// }
 
 
+// ----------------------------------------------------------------------------
 
+// 16.მატრიცაში ყველაზე ხშირი რიცხვის პოვნა
 
+// let matrix = [
+//   [2, 1, 2],
+//   [3, 2, 4],
+//   [5, 1, 2]
+// ];
 
+// let digit;
+// let maxCount = 0;
+
+// for (let i = 0; i < matrix.length; i++) {
+//   for (let j = 0; j < matrix[i].length; j++) {
+
+//     let count = 0;
+//     let current = matrix[i][j];
+
+    
+//     for (let x = 0; x < matrix.length; x++) {
+//       for (let y = 0; y < matrix[x].length; y++) {
+//         if (matrix[x][y] === current) {
+//           count++;
+//         }
+//       }
+//     }
+
+    
+//     if (count > maxCount) {
+//       maxCount = count;
+//       digit = current;
+//     }
+//   }
+// }
+
+// console.log(digit);
 
