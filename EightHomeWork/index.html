@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+           display: flex;
+           width: 75%;
+           height: 75%;
+           justify-self: center;
+           border: 3px solid blueviolet;
+           margin-bottom: 15px;
+        }
+
+        .div2{
+           display: flex;
+           width: 75%;
+           height: 75%;
+           justify-self: center;
+           border: 3px solid blueviolet;
+        }
+        #typewriter{
+           display: flex;
+           width: 75%;
+           height: 75%;
+           justify-self: center;
+           border: 3px solid blueviolet;
+        }
+        #slide1{
+            display: flex;
+            width: 30%;
+            height: 50px;
+            justify-self: center;
+            border: 1px solid black;
+            margin-right: 15px;
+            margin-left: 10px;
+            margin-top: 10px;
+            background-color: red;
+            
+        }
+        #slide2{
+            display: flex;
+            width: 30%;
+            height: 50px;
+            justify-self: center;
+            border: 1px solid black;
+            margin-right: 15px;
+            margin-left: 10px;
+            margin-top: 10px;
+            background-color: green;
+        }
+        #slide3{
+            display: flex;
+            width: 30%;
+            height: 50px;
+            justify-self: center;
+            border: 1px solid black;
+            margin-right: 15px;
+            margin-left: 10px;
+            margin-top: 10px;
+            background-color: blue;
+        }
+        #reset{
+            height: 25px;
+            margin-top: 25px;
+            background-color: blueviolet;
+            margin-right: 5px;
+        }
+        #main{
+            display: block;
+        }
+        .ind{
+            height: 25px;
+            margin-top: 10px;
+        }
+        #ans1{
+            display: none;
+            height: 75px;
+            background-color: aquamarine;
+        }
+        #ans2{
+            display: none;
+            height: 75px;
+            background-color: aquamarine;
+        }
+        #ans3{
+            display: none;
+            height: 75px;
+            background-color: aquamarine;
+        }
+        #ans4{
+            display: none;
+            height: 75px;
+            background-color: aquamarine;
+        }
+        #ans5{
+            display: none;
+            height: 75px;
+            background-color: aquamarine;
+        }
+        #ans6{
+            display: none;
+            height: 75px;
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <ul id="list1">
+            <li draggable="true">Tbilisi</li>
+            <li draggable="true">Washington</li>
+            <li draggable="true">Berlin</li>
+            <li draggable="true">Paris</li>
+            <li draggable="true">London</li>
+        </ul>
+    </div>
+    <div class="div2">
+        <ul id="list2"></ul>
+    </div>
+    <div id="typewriter">
+
+    </div>
+    <div>
+        <div id="slide1"><span id="red"></span></div>
+        <div id="slide2"><span id="green"></span></div>
+        <div id="slide3"><span id="blue"></span></div>
+        <button id="reset">RESET</button>
+    </div>
+    <div id="main">
+        <div class="ind" id="question1"></div><div class="none1" id="ans1"></div>
+        <div class="ind" id="question2"></div><div class="none2" id="ans2"></div>
+        <div class="ind" id="question3"></div><div class="none3" id="ans3"></div>
+        <div class="ind" id="question4"></div><div class="none4" id="ans4"></div>
+        <div class="ind" id="question5"></div><div class="none5" id="ans5"></div>
+        <div class="ind" id="question6"></div><div class="none6" id="ans6"></div>
+
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
