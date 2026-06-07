@@ -367,3 +367,117 @@
 
 // 9. სურათების კარუსელი
 
+// const previus=document.getElementById("prevBtn");
+// const next=document.getElementById("nextBtn");
+// const slide1=document.getElementById("one");
+// const slide2=document.getElementById("two");
+// const slide3=document.getElementById("three");
+// const slide4=document.getElementById("four");
+// const slide5=document.getElementById("five");
+// const wat=document.getElementById("track");
+// const dot1=document.getElementById("dot1");
+// const dot2=document.getElementById("dot2");
+// const dot3=document.getElementById("dot3");
+// const dot4=document.getElementById("dot4");
+// const dot5=document.getElementById("dot5");
+// const dot=document.getElementsByClassName("dot")
+// const m3=document.createElement("img");
+// const m4=document.createElement("img");
+// const m5=document.createElement("img");
+// const m6=document.createElement("img");
+// const m8=document.createElement("img");
+// m3.src="m3.jpeg";
+// m3.alt="BMW M3";
+// m3.style.height="350px";
+// m3.style.width="350px";
+// m4.src="m4.jpeg";
+// m4.alt="BMW M4";
+// m4.style.height="350px";
+// m4.style.width="350px";
+// m5.src="m5.jpeg";
+// m5.alt="BMW M5";
+// m5.style.height="350px";
+// m5.style.width="350px";
+// m6.src="m6.jpg";
+// m6.alt="BMW M6";
+// m6.style.height="350px";
+// m6.style.width="350px";
+// m8.src="m8.jpg";
+// m8.alt="BMW M8";
+// m8.style.height="350px";
+// m8.style.width="350px";
+// slide1.appendChild(m3);
+// slide2.appendChild(m4);
+// slide3.appendChild(m5);
+// slide4.appendChild(m6);
+// slide5.appendChild(m8);
+
+// const slides=[slide1,slide2,slide3,slide4,slide5];
+// const dotes=[dot1,dot2,dot3,dot4,dot5];
+// let current=0;
+// slides[0].style.display="flex";
+// dotes[0].style.background="#38bdf8"
+// let inter=setInterval(nextSlide,3000);
+// function nextSlide(){
+//     slides[current].style.display="none";
+//     dotes[current].style.background="#64748b";
+//     current++;
+//     if(current>=slides.length){
+//         current=0;
+//     }
+//     slides[current].style.display="flex";
+//     dotes[current].style.background="#38bdf8";
+// };
+    
+    
+// wat.addEventListener("mouseover",function(){
+//         clearInterval(inter);
+//     });
+
+// next.addEventListener("click",function(){
+//     slides[current].style.display="none";
+//     dotes[current].style.background="#64748b";
+//     current++;
+//     if(current>=slides.length){
+//         current=0;
+//     }
+//     slides[current].style.display="flex";
+//     dotes[current].style.background="#38bdf8";
+    
+// });
+// let reverse=slides.length-1;
+// slides[reverse].style.display="flex";
+// dotes[reverse].style.background="#64748b";
+// previus.addEventListener("click",function(){
+//     slides[reverse].style.display="none";
+//     dotes[reverse].style.background="#64748b";
+//     reverse--;
+//     if(reverse<0){
+//         reverse=slides.length-1;
+//     }
+//     slides[reverse].style.display="flex";
+//     dotes[reverse].style.background="#38bdf8";
+
+// });
+
+
+// dotes.forEach((dot, index) => {
+//     dot.addEventListener("click", function () {
+//         dotes[current].style.background = "#64748b";
+//         slides[current].style.display = "none";
+//         current = index;
+//         dotes[current].style.background = "#38bdf8";
+//         slides[current].style.display = "flex";
+
+//         clearInterval(inter);
+//     });
+// });
+
+
+
+
+
+
+
+
+

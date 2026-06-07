@@ -1,112 +1,325 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        div{
-           display: flex;
-           width: 75%;
-           height: 75%;
-           justify-self: center;
-           border: 3px solid blueviolet;
-           margin-bottom: 15px;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
         }
 
-        .div2{
-           display: flex;
-           width: 75%;
-           height: 75%;
-           justify-self: center;
-           border: 3px solid blueviolet;
+        body {
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            color: white;
+            min-height: 100vh;
+            padding: 30px;
         }
-        #typewriter{
-           display: flex;
-           width: 75%;
-           height: 75%;
-           justify-self: center;
-           border: 3px solid blueviolet;
+
+
+
+        #list1,
+        #list2 {
+            list-style: none;
+            min-height: 220px;
+            width: 250px;
+            padding: 15px;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
-        #slide1{
-            display: flex;
-            width: 30%;
+
+        #list1 li,
+        #list2 li {
+            background: #3b82f6;
+            margin: 10px 0;
+            padding: 12px;
+            border-radius: 10px;
+            cursor: grab;
+            text-align: center;
+            transition: .3s;
+        }
+
+        #list1 li:hover,
+        #list2 li:hover {
+            transform: translateY(-2px);
+            background: #2563eb;
+        }
+
+        .div2 {
+            margin-top: 20px;
+        }
+
+
+
+        #typewriter {
+            margin-top: 30px;
+            min-height: 60px;
+            font-size: 28px;
+            font-weight: bold;
+            color: #38bdf8;
+        }
+
+
+
+        #slide1,
+        #slide2,
+        #slide3 {
+            width: 300px;
             height: 50px;
-            justify-self: center;
-            border: 1px solid black;
-            margin-right: 15px;
-            margin-left: 10px;
-            margin-top: 10px;
-            background-color: red;
-            
-        }
-        #slide2{
+            margin-top: 15px;
+            border-radius: 12px;
             display: flex;
-            width: 30%;
-            height: 50px;
-            justify-self: center;
-            border: 1px solid black;
-            margin-right: 15px;
-            margin-left: 10px;
-            margin-top: 10px;
-            background-color: green;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            cursor: pointer;
+            transition: .3s;
         }
-        #slide3{
+
+        #slide1 {
+            background: #ef4444;
+        }
+
+        #slide2 {
+            background: #22c55e;
+        }
+
+        #slide3 {
+            background: #3b82f6;
+        }
+
+        #slide1:hover,
+        #slide2:hover,
+        #slide3:hover {
+            transform: scale(1.03);
+        }
+
+        #red,
+        #green,
+        #blue {
+            color: white;
+            font-size: 18px;
+        }
+
+        #reset {
+            margin-top: 15px;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 10px;
+            background: #f59e0b;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: .3s;
+        }
+
+        #reset:hover {
+            background: #d97706;
+        }
+
+
+
+        #main {
+            margin-top: 40px;
+            width: 600px;
+        }
+
+        .ind {
+            background: #334155;
+            padding: 15px;
+            margin-top: 10px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: .3s;
+        }
+
+        .ind:hover {
+            background: #475569;
+        }
+
+        #ans1,
+        #ans2,
+        #ans3,
+        #ans4,
+        #ans5,
+        #ans6 {
+            display: none;
+            background: #1e293b;
+            padding: 15px;
+            border-radius: 0 0 10px 10px;
+            border-left: 3px solid #38bdf8;
+        }
+
+
+
+        .carousel-container {
+            margin-top: 50px;
             display: flex;
-            width: 30%;
-            height: 50px;
-            justify-self: center;
-            border: 1px solid black;
-            margin-right: 15px;
-            margin-left: 10px;
-            margin-top: 10px;
-            background-color: blue;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
         }
-        #reset{
-            height: 25px;
-            margin-top: 25px;
-            background-color: blueviolet;
-            margin-right: 5px;
+
+        .carousel-track-wrapper {
+            width: 350px;
+            overflow: hidden;
+            border-radius: 20px;
         }
-        #main{
-            display: block;
+
+        .carousel-track {
+            display: flex;
+            transition: transform .5s ease;
         }
-        .ind{
-            height: 25px;
-            margin-top: 10px;
+
+        .slide {
+            min-width: 350px;
+            height: 220px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            font-weight: bold;
+            color: white;
+            background: linear-gradient(135deg,
+                    #6366f1,
+                    #8b5cf6);
+            border-radius: 20px;
         }
-        #ans1{
+        .slide2 {
+            min-width: 350px;
+            height: 220px;
             display: none;
-            height: 75px;
-            background-color: aquamarine;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            font-weight: bold;
+            color: white;
+            background: linear-gradient(135deg,
+                    #6366f1,
+                    #8b5cf6);
+            border-radius: 20px;
         }
-        #ans2{
+        .slide3 {
+            min-width: 350px;
+            height: 220px;
             display: none;
-            height: 75px;
-            background-color: aquamarine;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            font-weight: bold;
+            color: white;
+            background: linear-gradient(135deg,
+                    #6366f1,
+                    #8b5cf6);
+            border-radius: 20px;
         }
-        #ans3{
+        .slide4 {
+            min-width: 350px;
+            height: 220px;
             display: none;
-            height: 75px;
-            background-color: aquamarine;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            font-weight: bold;
+            color: white;
+            background: linear-gradient(135deg,
+                    #6366f1,
+                    #8b5cf6);
+            border-radius: 20px;
         }
-        #ans4{
+        .slide5 {
+            min-width: 350px;
+            height: 220px;
             display: none;
-            height: 75px;
-            background-color: aquamarine;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            font-weight: bold;
+            color: white;
+            background: linear-gradient(135deg,
+                    #6366f1,
+                    #8b5cf6);
+            border-radius: 20px;
         }
-        #ans5{
-            display: none;
-            height: 75px;
-            background-color: aquamarine;
+
+        #prevBtn,
+        #nextBtn {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 10px;
+            background: #6366f1;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+            transition: .3s;
         }
-        #ans6{
-            display: none;
-            height: 75px;
-            background-color: aquamarine;
+
+        #prevBtn:hover,
+        #nextBtn:hover {
+            background: #4f46e5;
+        }
+
+        .indicators {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        #dot1 {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #64748b;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        #dot2 {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #64748b;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        #dot3 {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #64748b;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        #dot4 {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #64748b;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        #dot5 {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #64748b;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .dot.active {
+            background: #38bdf8;
+            transform: scale(1.3);
         }
     </style>
 </head>
+
 <body>
     <div>
         <ul id="list1">
@@ -130,14 +343,49 @@
         <button id="reset">RESET</button>
     </div>
     <div id="main">
-        <div class="ind" id="question1"></div><div class="none1" id="ans1"></div>
-        <div class="ind" id="question2"></div><div class="none2" id="ans2"></div>
-        <div class="ind" id="question3"></div><div class="none3" id="ans3"></div>
-        <div class="ind" id="question4"></div><div class="none4" id="ans4"></div>
-        <div class="ind" id="question5"></div><div class="none5" id="ans5"></div>
-        <div class="ind" id="question6"></div><div class="none6" id="ans6"></div>
+        <div class="ind" id="question1"></div>
+        <div class="none1" id="ans1"></div>
+        <div class="ind" id="question2"></div>
+        <div class="none2" id="ans2"></div>
+        <div class="ind" id="question3"></div>
+        <div class="none3" id="ans3"></div>
+        <div class="ind" id="question4"></div>
+        <div class="none4" id="ans4"></div>
+        <div class="ind" id="question5"></div>
+        <div class="none5" id="ans5"></div>
+        <div class="ind" id="question6"></div>
+        <div class="none6" id="ans6"></div>
 
     </div>
+    <div class="carousel-container">
+
+        <button id="prevBtn">Previous</button>
+
+        <div>
+            <div class="carousel-track-wrapper">
+                <div class="carousel-track" id="track">
+                    <div id="one" class="slide"></div>
+                    <div id="two" class="slide2"></div>
+                    <div id="three" class="slide3"></div>
+                    <div id="four" class="slide4"></div>
+                    <div id="five" class="slide5"></div>
+                </div>
+            </div>
+
+            <div class="indicators">
+                <span class="dot" id="dot1"></span>
+                <span class="dot" id="dot2"></span>
+                <span class="dot" id="dot3"></span>
+                <span class="dot" id="dot4"></span>
+                <span class="dot" id="dot5"></span>
+            </div>
+        </div>
+
+        <button id="nextBtn">Next</button>
+
+    </div>
+
     <script src="script.js"></script>
 </body>
+
 </html>
