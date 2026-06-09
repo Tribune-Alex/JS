@@ -208,7 +208,7 @@
 //         if(!deleting){
 //             repeat.innerHTML=current.substring(0,charIndex+1);
 //             charIndex++;
-            
+
 //            if(charIndex===current.length){
 //             deleting=true;
 //             setTimeout(type,1000);
@@ -428,8 +428,8 @@
 //     slides[current].style.display="flex";
 //     dotes[current].style.background="#38bdf8";
 // };
-    
-    
+
+
 // wat.addEventListener("mouseover",function(){
 //         clearInterval(inter);
 //     });
@@ -443,7 +443,7 @@
 //     }
 //     slides[current].style.display="flex";
 //     dotes[current].style.background="#38bdf8";
-    
+
 // });
 // let reverse=slides.length-1;
 // slides[reverse].style.display="flex";
@@ -477,9 +477,328 @@
 
 // 10. Memory Card Game
 
+// const section = document.getElementsByClassName("section");
+// const d1 = document.getElementById("d1");
+// const d2 = document.getElementById("d2");
+// const d3 = document.getElementById("d3");
+// const d4 = document.getElementById("d4");
+// const d5 = document.getElementById("d5");
+// const d6 = document.getElementById("d6");
+// const d7 = document.getElementById("d7");
+// const d8 = document.getElementById("d8");
+// const d9 = document.getElementById("d9");
+// const d10 = document.getElementById("d10");
+// const d11 = document.getElementById("d11");
+// const d12 = document.getElementById("d12");
+// const d13 = document.getElementById("d13");
+// const d14 = document.getElementById("d14");
+// const d15 = document.getElementById("d15");
+// const d16 = document.getElementById("d16");
+// const picture = document.querySelectorAll(".picture");
+// const bmw = document.createElement("img");
+// const audi = document.createElement("img");
+// const skoda = document.createElement("img");
+// const vw = document.createElement("img");
+// const porsche = document.createElement("img");
+// const ferrari = document.createElement("img");
+// const maserati = document.createElement("img");
+// const mercedes = document.createElement("img");
+
+// bmw.src = "/EightHomeWork/memorypic/bmw.jpeg";
+// bmw.style.height = "150px";
+// bmw.style.width = "150px";
+// audi.src = "/EightHomeWork/memorypic/audi.jpg";
+// audi.style.height = "150px";
+// audi.style.width = "150px";
+// skoda.src = "/EightHomeWork/memorypic/skoda.png";
+// skoda.style.height = "150px";
+// skoda.style.width = "150px";
+// vw.src = "/EightHomeWork/memorypic/vw.jpeg";
+// vw.style.height = "150px";
+// vw.style.width = "150px";
+// porsche.src = "/EightHomeWork/memorypic/porsche.jpeg";
+// porsche.style.height = "150px";
+// porsche.style.width = "150px";
+// ferrari.src = "/EightHomeWork/memorypic/ferrari.png";
+// ferrari.style.height = "150px";
+// ferrari.style.width = "150px";
+// maserati.src = "/EightHomeWork/memorypic/maserati.jpeg";
+// maserati.style.height = "150px";
+// maserati.style.width = "150px";
+// mercedes.src = "/EightHomeWork/memorypic/mercedes.jpeg";
+// mercedes.style.width = "25px";
+// mercedes.style.height = "150px";
 
 
+// const arr = [d1, d2, d3, d4, d5, d6, d7, d8,d9,d10,d11,d12,d13,d14,d15,d16];
+// const img = [bmw, audi, skoda, vw, porsche, ferrari, maserati, mercedes];
+// function game() {
+//     let life = 8;
+//     let count = 0;
+//     let cards = [];
+//     for (let i = 0; i < img.length; i++) {
+//         cards.push(img[i]);
+//         cards.push(img[i]);
+//     }
+//     for (let i = 0; i < picture.length; i++) {
+//         let random = Math.floor(Math.random() * cards.length);
+//         picture[i].innerHTML = `<img src="${cards[random].src}" alt="logo">`;
+//         cards.splice(random, 1);
+//     }
 
+//     let first = null;
+//     let second = null;
+
+//     for (let card of picture) {
+//     card.addEventListener("click", function (e) {
+
+//         const imgali = e.currentTarget.querySelector("img");
+//         if (!imgali) return;
+
+//         if (imgali.style.display === "block") return;
+
+//         imgali.style.display = "block";
+
+//         if (!first) {
+//             first = imgali;
+//             return;
+//         }
+
+//         second = imgali;
+
+//         if (first.src === second.src) {
+//             count++;
+
+//             if (count === 8) {
+//                 alert("You win the game");
+//             }
+
+//         } else {
+//             life--;
+
+//             const a = first;
+//             const b = second;
+
+//             setTimeout(() => {
+//                 a.style.display = "none";
+//                 b.style.display = "none";
+//             }, 500);
+
+//             if (life === 0) {
+//                 alert("You lose");
+//             }
+//         }
+
+//         first = null;
+//         second = null;
+//     });
+// }
+
+// }
+
+
+// game();
+
+// --------------------------------------------------------------------------
+
+// 11. Live Search
+
+// const input = document.getElementById("input");
+// const btn = document.getElementById("btn");
+// const list = document.getElementsByClassName("list");
+
+// btn.addEventListener("click", function () {
+//     const str=input.value.toLowerCase().trim().replaceAll(" ","");
+//     for(let item of list){
+//         item.style.backgroundColor = "";
+//         let edit=item.textContent.toLowerCase().trim().replaceAll(" ","");
+//         if(edit===str){
+//             item.style.backgroundColor = "green";
+//             item.scrollIntoView({
+//                 behavior: "smooth",
+//                 block: "center"     
+//             });
+
+//             break;
+
+
+//         }
+//     }
+
+// });
+
+
+// ----------------------------------------------------------------------------------
+
+// 12. Digital Clock
+
+// const hours = document.getElementById("hours");
+// const minutes = document.getElementById("minutes");
+// const seconds = document.getElementById("seconds");
+// const data = document.getElementById("data");
+// const twofour = document.getElementById("twofour");
+// const onetwo = document.getElementById("onetwo");
+// const pmam = document.getElementById("pmam");
+// setInterval(() => {
+//     const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+//     const mon = ["December", "January", "February", "March", "April", "May", "June", "July", "Augast", "September", "October", "November",];
+//     const now = new Date();
+//     const dayindex = now.getDay();
+//     const monthindex = now.getMonth();
+//     const mname = mon[monthindex];
+//     const name = days[dayindex];
+//     hours.textContent = now.getHours();
+//     minutes.textContent = now.getMinutes();
+//     seconds.textContent = now.getSeconds();
+//     data.textContent = `${now.getDate()}-${mname}\n${now.getFullYear()}\n${name}`;
+// }, 1000);
+
+// let interval;
+
+// twofour.addEventListener("click", function () {
+//     pmam.style.display = "none";
+//     clearInterval(interval);
+//     interval = setInterval(() => {
+//         const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+//         const mon = ["December", "January", "February", "March", "April", "May", "June", "July", "Augast", "September", "October", "November",];
+//         const now = new Date();
+//         const dayindex = now.getDay();
+//         const monthindex = now.getMonth();
+//         const mname = mon[monthindex];
+//         const name = days[dayindex];
+//         hours.textContent = now.getHours();
+//         minutes.textContent = now.getMinutes();
+//         seconds.textContent = now.getSeconds();
+//         data.textContent = `${now.getDate()}-${mname}\n${now.getFullYear()}\n${name}`;
+//     }, 1000);
+// });
+
+// onetwo.addEventListener("click", function () {
+//     pmam.style.display = "flex";
+//     clearInterval(interval);
+//     interval = setInterval(() => {
+//         const now = new Date();
+//         const time = now.toLocaleTimeString('en-US', {
+//             hour: '2-digit',
+//             minute: '2-digit',
+//             second: '2-digit',
+//             hour12: true
+//         });
+
+//         const [clock, period] = time.split(" ");
+//         const [h, m, s] = clock.split(":");
+
+//         hours.textContent = h;
+//         minutes.textContent = m;
+//         seconds.textContent = s;
+//         pmam.textContent = period;
+
+
+//     }, 1000);
+// });
+
+
+// --------------------------------------------------------------------------------------------------------------
+
+
+// 13. Calculator
+
+// const display = document.getElementById("display");
+
+// const btns = document.getElementsByClassName("buttonssss");
+// const operators = document.getElementsByClassName("operator");
+// const ac = document.getElementsByClassName("clear");
+// const backspace = document.getElementsByClassName("delete");
+
+// let firstNumber = null;
+// let currentOperator = null;
+// let waitingForSecondNumber = false;
+
+
+// for (let btn of btns) {
+//     btn.addEventListener("click", function (e) {
+//         const value = e.target.textContent;
+
+//         if (
+//             display.textContent === "0" ||
+//             waitingForSecondNumber
+//         ) {
+//             display.textContent = value;
+//             waitingForSecondNumber = false;
+//         } else {
+//             display.textContent += value;
+//         }
+//     });
+// }
+
+
+// for (let op of operators) {
+//     op.addEventListener("click", function (e) {
+//         const value = e.target.textContent;
+
+//         if (value === "=") {
+
+//             if (firstNumber === null || currentOperator === null) {
+//                 return;
+//             }
+
+//             const secondNumber = Number(display.textContent);
+
+//             let result;
+
+//             switch (currentOperator) {
+//                 case "+":
+//                     result = firstNumber + secondNumber;
+//                     break;
+
+//                 case "-":
+//                     result = firstNumber - secondNumber;
+//                     break;
+
+//                 case "*":
+//                     result = firstNumber * secondNumber;
+//                     break;
+
+//                 case "/":
+//                     result = firstNumber / secondNumber;
+//                     break;
+//             }
+
+//             display.textContent = result;
+
+//             firstNumber = null;
+//             currentOperator = null;
+//             waitingForSecondNumber = false;
+
+//         } else {
+
+//             firstNumber = Number(display.textContent);
+//             currentOperator = value;
+//             waitingForSecondNumber = true;
+
+//         }
+//     });
+// }
+
+
+// ac[0].addEventListener("click", function () {
+//     display.textContent = "0";
+
+//     firstNumber = null;
+//     currentOperator = null;
+//     waitingForSecondNumber = false;
+// });
+
+
+// backspace[0].addEventListener("click", function () {
+
+//     if (display.textContent.length > 1) {
+//         display.textContent = display.textContent.slice(0, -1);
+//     } else {
+//         display.textContent = "0";
+//     }
+
+// });
 
 
 
