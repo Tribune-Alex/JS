@@ -119,3 +119,101 @@
 // }
 
 // console.log(createuser("alex","programming","gaming","music"));
+
+// ----------------------------------------------------------------
+
+// 6.
+
+// const product={
+//     price:2500
+// };
+
+// Object.defineProperty(product,'discountedPrice',{
+//     value:35,
+//     writable:false,
+//     enumerable:false,
+// });
+
+// const key=Object.keys(product);
+// console.log(key);
+// const value=Object.values(product);
+// console.log(value);
+
+// -----------------------------------------------------------------
+
+// 7.
+// 'use strict';
+
+// const config={
+//     brand:"BMW",
+//     model:"M5",
+//     engine:"S63B44B",
+//     maxspeed:"320km/h"
+// };
+// Object.freeze(config);
+// config.model="535";
+// console.log(config);
+
+// ------------------------------------------------------------------
+
+// 8.
+
+// const settings={
+//     brand:"Apple",
+//     model:"Iphone 17 Pro Max",
+//     memory:"12 GB RAM",
+//     weight:"233 grams",
+//     isAvailable:true
+// };
+
+// Object.seal(settings);
+// settings.price="2300";
+// console.log(settings);
+// settings.isAvailable=false;
+// console.log(settings);
+
+// ------------------------------------------------------------------
+
+// 9.
+
+// class Temperature{
+//     constructor(celsius){
+//         this.celsius=celsius;
+//     }
+//     get fahrenheit(){
+//         return `${this.celsius*1.8+32} Fahrenheit`;
+//     }
+
+//     set fahrenheit(value){
+//         return `${this.celsius=Math.round((value-32)/1.8)+ "Celsius"}`;
+//     }
+
+// };
+
+// const cel=new Temperature(35);
+// console.log(cel.fahrenheit);
+// cel.fahrenheit=115;
+// console.log(cel.celsius);
+
+// ---------------------------------------------------------------------
+
+// 10.
+
+// const defaults = {
+//     theme: "light",
+//     lang: "en"
+// };
+
+// const userPrefs = { 
+//     lang: "ka",
+//     contacts:{
+//         phone:"5555",
+//         name:"alex"
+//     }
+// };
+
+// const merged=Object.assign({},defaults,userPrefs);
+// console.log(merged);
+
+// როდესაც ობიექტში არის ობიექტი Object.assign() დროს ის წამოიღებს ჩაშენებული ობიექტს, მისი მნიშვნელობის გარეშე.
+
