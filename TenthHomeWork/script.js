@@ -187,14 +187,14 @@
 // };
 
 // class Truck extends Vehicle {
-   
+
 //     describe() {
 //         return `${this.brand} ${this.year} is a truck`;
 //     }
 // };
 
 // class Motorcycle extends Vehicle{
-  
+
 //     describe(){
 //         return `${this.brand} ${this.year} is a motorcycle`;
 //     }
@@ -259,3 +259,194 @@
 // for(let i of arr){
 //     console.log(i);
 // };
+
+// -------------------------------------------------------------------
+
+// დავალება 7 — უნივერსიტეტის სისტემა (ყველა თემის გაერთიანება)
+
+// class Person {
+//     static people = [];
+//     constructor(name, lastname, subject, status) {
+//         this.name = name;
+//         this.lastname = lastname;
+//         this.subject = subject;
+//         this.status = status;
+//         Person.people.push(this);
+//     }
+//     static get list() {
+//         return Person.people;
+//     }
+// };
+
+// class Student extends Person {
+//     static allstudents = [];
+//     static count = 0;
+//     constructor(name, lastname, subject, grade,) {
+//         super(name, lastname, subject, "Student");
+//         this.grade = grade;
+//         Student.count++;
+//         Student.allstudents.push(this);
+//     }
+//     static get allstud() {
+//         return Student.allstudents;
+//     }
+
+//     static get counter() {
+//         return Student.count;
+//     }
+
+//     get detail() {
+//         return `Student ${this.name} ${this.lastname} has ${this.grade} in ${this.subject}`;
+//     }
+// };
+
+
+// class Teacher extends Person {
+//     constructor(name, lastname, subject) {
+//         super(name, lastname, subject, "Lecturer");
+//     }
+
+//     get detail() {
+//         return `Lector ${this.name} ${this.lastname} teaches ${this.subject}`;
+
+//     }
+// };
+
+// class University{
+//     static get everyone() {
+//         return Person.people;
+//     }
+//     static adding(name, lastname, subject, status) {
+//         return new Person(name, lastname, subject, status);
+//     }
+//     static find(name,lastname){
+//         for(let i in Person.people){
+//             if(Person.people[i].name===name && Person.people[i].lastname===lastname){
+//                 console.log(Person.people[i]);
+//                 break;
+//             }
+//         }
+//     }
+
+//     static delete(name, lastname) {
+//         for(let i in Person.people){
+//             if(Person.people[i].name===name && Person.people[i].lastname===lastname){
+//                 Person.people.splice(i,1);
+//                 break;
+//             }
+//         }
+//     }
+// };
+
+// const teacher1 = new Person("James", "Brown", "Math", "Lecturer");
+// const student1 = new Student("Alex", "Todua", "Math", 100);
+// const teacher2 = new Teacher("Michael", "Ballack", "Football");
+// const student2 = new Student("Thomas", "Azier", "Music", 100);
+
+
+// function hello(text) {
+//     return `${text} ${this.name} ${this.lastname}`;
+// };
+
+// console.log(hello.call(student1, "Hello I am"));
+// console.log(hello.call(student2, "Hello I am"));
+
+// function display(one, two) {
+//     return `${one} ${this.name} ${this.lastname} ${two} ${this.status}`;
+// }
+
+// console.log(display.apply(student2, ["Hello my name is", "and I am a"]));
+// console.log(display.apply(teacher2, ["Hello my name is", "and I am a"]));
+
+// const stud1 = display.bind(student1);
+// const stud2 = display.bind(student2);
+// const teach1 = display.bind(teacher1);
+// const teach2 = display.bind(teacher2);
+
+// console.log(`${stud1("Hello my name is", "and I am a")}\n${stud2("Hello my name is", "and I am a")}\n${teach1("Hello my name is", "and I am a")}\n${teach2("Hello my name is", "and I am a")}`);
+
+// console.log(Student.counter);
+
+// console.log(Student.allstud);
+
+// const deepcory = structuredClone(Student.allstud);
+// deepcory[0].name = "Sebastian";
+// deepcory[1].lastname = "Connor";
+// console.log(deepcory);
+
+
+// const teacher3=University.adding("Ross","Geller","Paleontologist","Lecturer");
+// University.delete("Ross","Geller");
+// console.log(University.everyone);
+// University.find("Michael","Ballack");
+
+// -----------------------------------------------------------------------------------
+
+// დავალება 8 — ბანკის სისტემა (კომპლექსური)
+
+// class BankAccount{
+//     static acountsall=[];
+//     #balance=0;
+//     constructor(owner,account){
+//         this.owner=owner;
+//         this.account=account;
+//         BankAccount.acountsall.push(this);
+//     }
+//     static get detail(){
+//         return BankAccount.acountsall;
+//     }
+//     deposit(amount){
+//         if(amount>0){
+//             this.#balance+=amount;
+//         }
+//     }
+//     withdraw(amount){
+//         if(this.#balance-amount>=0){
+//            this.#balance-=amount;
+//         }else{
+//             console.log("There is not enough money");
+//         }
+//     }
+//     static transfer(enc,dest,amount){
+//        let from=null;
+//        let to=null;
+//        for(let i=0; i<BankAccount.acountsall.length;i++){
+//             const aaa=BankAccount.acountsall[i];
+//             if(aaa.account===enc){
+//                 from=aaa;
+//             }
+//             if(aaa.account===dest){
+//                 to=aaa;
+//             }
+
+//        }
+//        if(from.#balance <amount){
+//         console.log("There is not enough money");
+//         return;
+//        }
+//        from.#balance -=amount;
+//        to.#balance +=amount;
+//     }
+//     get getbalance(){
+//         return this.#balance;
+//     }
+// };
+
+// const acc1=new BankAccount("Mike","GE1111");
+// const acc2=new BankAccount("Jimmy","GE3333");
+// const acc3=new BankAccount("Steve","GE5555");
+// acc1.deposit(1500);
+// acc1.withdraw(17);
+// acc2.deposit(1000);
+// acc2.withdraw(157);
+// acc3.deposit(500);
+// acc3.withdraw(14);
+// BankAccount.transfer("GE1111","GE5555",500);
+// BankAccount.transfer("GE3333","GE1111",150);
+// console.log(BankAccount.detail);
+
+
+
+
+
+
