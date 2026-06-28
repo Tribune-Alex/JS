@@ -78,6 +78,7 @@ function getAll() {
             for (let i = 0; i < data.length; i++) {
                 section.innerHTML += cartPrint(data[i])
             }
+            setUpBasket();
         })
 };
 
@@ -86,7 +87,7 @@ getAll();
 function cartPrint(product) {
 
     return `
-<div class="card" style="width: 18rem;">
+<div class="card" style="width: 18rem;" data-id=${product.id} data-price=${product.price}>
   <img src="${product.image}" class="card-img-top" alt="...">
   <div class="card-body">
     <h5 class="card-title">${product.name}</h5>
@@ -117,15 +118,80 @@ getCategoris();
 
 function filter(id) {
     fetch(`https://restaurant.stepprojects.ge/api/Categories/GetCategory/${id}`)
-        .then((response) => response.json())
-        .then((search) => {
-            section.innerHTML = "";
-            console.log(search);
-            for (let i = 0; i < search.products.length; i++) {
-                section.innerHTML += cartPrint(search.products[i])
+}
+
+
+function setUpBasket() {
+
+    const buttons = document.querySelectorAll(".add-to-basket")
+    
+    buttons.forEach((button) => {
+        button.addEventListener("click", async (e) => {
+            const card = e.target.closest(".card");
+            const productId = parseInt(card.dataset.id);
+            const pricePerUnit=parseFloat(card.dataset.price)
+            const quantityInput = card.querySelector(".quantity-input")
+            const quantity = parseInt(quantityInput.value)
+
+            const payload = {
+                productId, 
+                quantity, 
+                price:quantity*pricePerUnit
+            }
+            try{
+                const basketRes = await fetch("https://restaurant.stepprojects.ge/api/Baskets/GetAll",
+                    {
+                        method:"GET", 
+                        headers:{
+                            accept:"text/plain"
+                        }
+
+                    }
+                ); 
+                const basketItems = await basketRes.json()
+                const existingItem = basketItems.find(
+                    (item)=>item.product.id===productId
+                ); 
+
+                let endpoint=""
+                let method=""
+
+                if(existingItem){
+                    payload.quantity+=existingItem.quantity
+                    payload.price=payload.quantity*pricePerUnit;
+                    endpoint="https://restaurant.stepprojects.ge/api/Baskets/UpdateBasket"; 
+                    method="PUT"
+                }else{
+                    endpoint="https://restaurant.stepprojects.ge/api/Baskets/AddToBasket"; 
+                    method="POST"
+        
+                }
+
+                const res = await fetch(endpoint, {
+                    method:method,
+                    headers:{
+                        "Content-type":"application/json", 
+                        accept:"text/plain"
+                    }, 
+                    body:JSON.stringify(payload)
+                })
+
+                if(res.ok){
+                    console.log("წარმატებით დასრულდა")
+                }else{
+                    throw new Error("შეცდომა მოხდა");
+                    
+                }
+
+
+            }catch(error){
+                console.error(error)
+                alert("შეცდომა მოხდა")
+
             }
         })
-};
+    })
+}
 
 function getBasket() {
     fetch("https://restaurant.stepprojects.ge/api/Baskets/GetAll")
