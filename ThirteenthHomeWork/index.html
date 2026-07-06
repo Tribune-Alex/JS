@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/flatpickr.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/plugins/monthSelect/style.css">
 </head>
 
 <body>
@@ -31,18 +31,88 @@
                     <input type="text" id="date-picker2" placeholder="Choose a date...">
                 </form>
                 <div id="results"></div>
-        </div>
+            </div>
 
-        <div class="workingday">
-            <h2>დავალება 3 – სამუშაო დღე</h2>
-            <div class="inputform3">
-                <form>
-                    <label for="date-picker">Input Date:</label>
-                    <input type="text" id="date-picker3" placeholder="Choose a date...">
-                </form>
-                <div id="resultday"></div>
-        </div>
+            <div class="workingday">
+                <h2>დავალება 3 – სამუშაო დღე</h2>
+                <div class="inputform3">
+                    <form>
+                        <label for="date-picker">Input Date:</label>
+                        <input type="text" id="date-picker3" placeholder="Choose a date...">
+                    </form>
+                    <div id="resultday"></div>
+                </div>
+
+                <div class="comparedates">
+                    <h2>დავალება 4 – თარიღების სხვაობა</h2>
+                    <div class="inputform4">
+                        <form>
+                            <label for="date-picker">Input First Date:</label>
+                            <input type="text" id="date-picker4" placeholder="Choose a date...">
+                        </form>
+                        <br>
+                        <form>
+                            <label for="date-picker">Input Second Date:</label>
+                            <input type="text" id="date-picker5" placeholder="Choose a date...">
+                        </form>
+                        <br>
+                        <button onclick="compareDate()">Compare</button>
+                        <div id="resultcompare"></div>
+                    </div>
+
+                    <div class="calendar">
+                        <h2>დავალება 5 – თვის კალენდარი</h2>
+                        <div class="inputform6">
+                            <form>
+                                <label for="date-picker">Input Date:</label>
+                                <input type="text" id="date-picker6" placeholder="Choose a date...">
+                            </form>
+                            <br>
+                            <div id="resultcalendar"></div>
+                        </div>
+
+                        <div id="six">
+                            <h2>დავალება 6 – უახლოესი დაბადების დღე</h2>
+                            <div id="display">
+
+                            </div>
+                        </div>
+
+                        <div id="seven">
+                            <h2>დავალება 7 – Date Formatter</h2>
+                            <div id="screen">
+
+                            </div>
+                            <br>
+                            <button id="but">Change Format</button>
+                            <br>
+                            <br>
+                            <button id="res">Reset</button>
+                        </div>
+                         <div id="eight">
+                            <h2>დავალება 8 – ციფრული საათი</h2>
+                            <div id="digitclock">
+
+                            </div>
+                        </div>
+                        <div id="nine">
+                            <h2>დავალება 9 – შემთხვევითი თარიღი</h2>
+                            <div id="generator">
+
+                            </div>
+                            <br>
+                            <br>
+                            <button onclick="generateDate(start,end)">Generate</button>
+                        </div>
+                        <div id="ten">
+                            <h2>დავალება 10 – Event Planner</h2>
+                            <div id="displayten">
+
+                            </div>
+                        </div>
     </section>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/flatpickr.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/plugins/monthSelect/index.js"></script>
     <script src="./script.js"></script>
 </body>
 
