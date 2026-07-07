@@ -12,6 +12,7 @@ fetch("https://shopapi.stepacademy.ge/api/categories", {
     .then(result => {
 
         const categories = result.data;
+        const contentcategories = result.data.slice(0, 4);
 
         categoriesMenu.innerHTML = "";
 
@@ -23,11 +24,15 @@ fetch("https://shopapi.stepacademy.ge/api/categories", {
                     </a>
                 </li>
             `;
+
+        });
+
+        contentcategories.forEach(cat => {
             contentcategory.innerHTML += `<div class="cat">
-            <div class="cat-item"><img class="img" src="${category.imageUrl}" alt="product">
+            <div class="cat-item"><img class="img" src="${cat.imageUrl}" alt="product">
             <div class="specs">
-                <p class="name">${category.name}</p>
-                <p class="count">${category.productCount} products</p>
+                <p class="name">${cat.name}</p>
+                <p class="count">${cat.productCount} products</p>
             </div>
              <span class="arrow">
                 <span class="arrow-line"></span>
@@ -36,7 +41,7 @@ fetch("https://shopapi.stepacademy.ge/api/categories", {
             
             </div>
             </div>`
-        });
+        })
 
     })
     .catch(err => console.error(err));
@@ -75,3 +80,36 @@ function productPrint(prd) {
 };
 
 
+async function loadproducts() {
+    const res = await fetch(`https://shopapi.stepacademy.ge/api/products?Take=4&Page=2`, {
+        headers: {
+            'x-api-key': apikey
+        }
+    })
+    const json = await res.json();
+
+    showProducts(json.data.items)
+}
+
+function showProducts(items) {
+    const newitems = document.getElementById("newitems")
+    items.innerHTML = ""
+    items.forEach(item => {
+        newitems.innerHTML += `
+       <div class="card" id="carddesign" style="width: 18rem;">
+          <img class="card-img-top" src="${item.imageUrl}" alt="Card image cap">
+           <div class="card-body">
+           <p class="card-text"><span class="catname"> ${item.category.name}</span> <span class="doted"> ' </span> <span class="brandname"> ${item.brand}</span></p>
+           <h5 class="card-title">${item.name}</h5>
+           <p class="card-text">${item.model}</p>
+           <p class="card-text">${item.rating}</p>
+           <p class="card-text">${item.price}</p>
+           <a href="#" class="btn btn-primary">Go somewhere</a>
+           </div>
+         </div>
+        `
+    })
+
+}
+
+loadproducts();
