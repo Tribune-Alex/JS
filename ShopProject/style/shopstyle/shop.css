@@ -1,0 +1,148 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.nav {
+  display: flex;
+  width: 100%;
+}
+.nav .navbar {
+  width: 100%;
+  color: black;
+  position: fixed;
+}
+.nav .navbar .nav-link,
+.nav .navbar .navbar-brand,
+.nav .navbar .dropdown-toggle {
+  color: black !important;
+}
+
+.steptech {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+#logo {
+  border: 3px solid #1ECC5C;
+  border-radius: 7px;
+  background-color: #1ECC5C;
+  color: #000;
+  stroke: white;
+}
+
+#search {
+  width: 250px;
+  height: 45px;
+  margin-left: 75px;
+  padding-left: 15px;
+  border-radius: 30px;
+  border-color: #1ECC5C;
+}
+
+.btn-outline-dark {
+  margin-top: 7px;
+  height: 35px;
+  padding: 0 20px;
+  border-radius: 30px;
+  border-color: #1ECC5C;
+  background-color: #1ECC5C;
+  color: white;
+  font-size: 12px;
+}
+
+.allproducts {
+  margin-top: 25px;
+  width: 100%;
+  height: 175px;
+  background-color: #F6F6F6;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border: 1px solid #E0E0E0;
+}
+.allproducts .review {
+  margin-left: 115px;
+  margin-top: 35px;
+}
+
+.getallproducts {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  background-color: #FFFFFF;
+  gap: 20px;
+  justify-content: center;
+  align-items: self-start;
+  margin-left: 45px;
+  margin-top: 45px;
+}
+.getallproducts .filter {
+  width: 20%;
+  height: 700px;
+  border: 1px solid #F6F6F6;
+  border-radius: 20px;
+  background-color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.getallproducts .filter #check {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  gap: 20px;
+  font-weight: lighter;
+  font-size: 12px;
+}
+.getallproducts .items {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  background-color: #FFFFFF;
+}
+.getallproducts .items .sort {
+  width: 75%;
+  height: 125px;
+  border: 1px solid red;
+}
+.getallproducts .items .software {
+  margin-top: 45px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  height: auto;
+  margin-bottom: 45px;
+  border-bottom: 1px solid #E0E0E0;
+}
+.getallproducts .items .software #carddesign {
+  border-radius: 25px;
+}
+.getallproducts .items .software .size {
+  width: 100%;
+  height: 200px;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+}
+.getallproducts .items .pagination {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.getallproducts .items .pagination .pagi {
+  margin-left: 10px;
+  width: 30px;
+  height: 30px;
+  border-radius: 7px;
+  background-color: #FFFFFF;
+  border: 0.5px solid #E4E4E4;
+}
+.getallproducts .items .pagination .pagi:hover {
+  border-color: #1ECC5C;
+}/*# sourceMappingURL=shop.css.map */

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STEP TECH</title>
+    <link rel="stylesheet" href="/ShopProject/style/shopstyle/shop.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="bootstrap.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body>
+    <section class="nav">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-white sticky-top">
+            <div class="container">
+
+                <a class="navbar-brand fw-bold" href="/ShopProject/index.html">
+                    <svg _ngcontent-ng-c3188417508="" xmlns="http://www.w3.org/2000/svg" id="logo" width="35"
+                        height="35" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <rect _ngcontent-ng-c3188417508="" x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                        <path _ngcontent-ng-c3188417508="" d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                    </svg>
+                    <span class="steptech">STEP TECH</span>
+                </a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+
+                    <ul class="navbar-nav ms-5">
+
+                        <li class="nav-item">
+                            <a class="nav-link active" href="/ShopProject/index.html">
+                                Home
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link active" href="/ShopProject/pages/shop.html">
+                                Shop
+                            </a>
+                        </li>
+
+                        <!-- Categories -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="categoriesDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Categories
+                            </a>
+
+                            <ul class="dropdown-menu" id="categoriesMenu" aria-labelledby="categoriesDropdown">
+
+
+
+                            </ul>
+                        </li>
+
+
+
+                    </ul>
+
+                    <form class="d-flex ">
+                        <input class="form-control me-2" type="search" id="search" placeholder="Search products..."
+                            id="search">
+
+                        <button class="btn-outline-dark" type="submit">
+                            Sign in
+                        </button>
+                    </form>
+
+                </div>
+
+            </div>
+        </nav>
+    </section>
+    <section class="allproducts">
+        <div class="review">
+            <h2>All products</h2>
+            <p>Discover our full range of tech products</p>
+        </div>
+
+    </section>
+    <section class="getallproducts">
+        <div class="filter">
+            <div id="check"></div>
+        </div>
+        <div class="items">
+            <div class="sort"></div>
+            <div class="software" id="soft"></div>
+            <div class="pagination" id="pag"></div>
+        </div>
+    </section>
+    <script src="/ShopProject/script/shop.js"></script>
+</body>
+
+</html>
