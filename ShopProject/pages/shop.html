@@ -68,8 +68,7 @@
                     </ul>
 
                     <form class="d-flex ">
-                        <input class="form-control me-2" type="search" id="search" placeholder="Search products..."
-                            id="search">
+                        <input type="search" id="product-search" placeholder="Search products...">
 
                         <button class="btn-outline-dark" type="submit">
                             Sign in
@@ -90,10 +89,70 @@
     </section>
     <section class="getallproducts">
         <div class="filter">
+            <div>
+                <h6>Filters</h6>
+            </div>
+            <div>
+                <h6>Categories</h6>
+            </div>
             <div id="check"></div>
+            <div class="grouprating">
+                <button class="buttn" id="rat4" value="4">4 & up</button>
+                <button class="buttn" id="rat3"  value="3">3 & up</button>
+                <button class="buttn" id="rat2" value="2">2 & up</button>
+                <button class="buttn" id="rat1" value="1">1 & up</button>
+            </div>
+            <div>
+                <h6>Price Range</h6>
+            </div>
+            <div id="price">
+                <form class="form">
+                    <input type="number" id="min-price" name="min_price" min="0" max="9999" placeholder="0$" required>
+                    <input type="number" id="max-price" name="max_price" min="0" max="9999" placeholder="9999$"
+                        required>
+                </form>
+            </div>
+            <div>
+                <h6>Brand</h6>
+            </div>
+            <div class="searc">
+                <search>
+                    <form>
+                        <input type="search" id="site-search" name="q" placeholder="Search brands..." required>
+                    </form>
+                </search>
+            </div>
+            <div>
+                <h6>Availability</h6>
+            </div>
+            <div class="stock">
+                <form>
+                    <input type="checkbox" id="instock"><span>In Stock Only</span>
+                </form>
+            </div>
+            <div class="reset"><button id="resbut">
+                    <p>Cleat all filters</p>
+                </button></div>
         </div>
         <div class="items">
-            <div class="sort"></div>
+            <div class="sort">
+                <div class="searchinput">
+                    <form>
+                        <input type="search" id="product-search2" placeholder="Search products...">
+                    </form>
+                </div>
+                <div class="sortitems">
+                    <div id="total"></div>
+                    <div id="sorted">
+                        <select id="sortttt">
+                            <option id="valuesss" value="price-asc">Price: Low → High</option>
+                            <option id="valuesss" value="price-desc">Price: High → Low</option>
+                            <option id="valuesss" value="name-asc">Name: A → Z</option>
+                            <option id="valuesss" value="name-desc">Name: Z → A</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
             <div class="software" id="soft"></div>
             <div class="pagination" id="pag"></div>
         </div>
