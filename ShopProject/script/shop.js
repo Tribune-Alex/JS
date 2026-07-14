@@ -8,6 +8,9 @@ const Rating4 = document.getElementById("rat4");
 const Rating3 = document.getElementById("rat3");
 const Rating2 = document.getElementById("rat2");
 const Rating1 = document.getElementById("rat1");
+const InStock=document.getElementById("instock");
+const reset=document.getElementById("resbut");
+const sortSelect = document.getElementById("sortttt");
 
 const filter = {
     Search: "",
@@ -32,6 +35,12 @@ brandsearch.addEventListener('input', function () {
     isFilter = true;
     filterProducts(1);
 });
+
+InStock.addEventListener("change",function(){
+    filter.InStock=this.checked;
+    isFilter=true;
+    filterProducts(1);
+})
 
 
 minPrice.addEventListener('input', function () {
@@ -74,6 +83,33 @@ Rating4.addEventListener('click', function () {
     filterProducts(1);
 });
 
+sortSelect.addEventListener("change", function () {
+
+    switch (this.value) {
+        case "price-asc":
+            filter.SortBy = "price";
+            filter.SortDescending = false;
+            break;
+
+        case "price-desc":
+            filter.SortBy = "price";
+            filter.SortDescending = true;
+            break;
+
+        case "name-asc":
+            filter.SortBy = "name";
+            filter.SortDescending = false;
+            break;
+
+        case "name-desc":
+            filter.SortBy = "name";
+            filter.SortDescending = true;
+            break;
+    }
+
+    filterProducts(1);
+});
+
 search.addEventListener('input', function () {
     seachtext = search.value;
 
@@ -100,6 +136,39 @@ search2.addEventListener('input', function () {
         isSearch = true;
         searchProduct(1);
     }
+});
+
+reset.addEventListener("click",function(){
+    filter.Search= "",
+    filter.Brand= "",
+    filter.InStock= "",
+    filter.SortBy= "1",
+    filter.CategoryId= "",
+    filter.MinRating= 0,
+    filter.MinPrice= 1,
+    filter.MaxPrice= 9999,
+    filter.SortDescending= false,
+    filter.Take= 6,
+    filter.Page= 1
+    
+
+
+    brandsearch.value = "";
+    minPrice.value = "";
+    maxPrice.value = "";
+    search.value = "";
+    search2.value = "";
+    InStock.checked = false;
+
+    
+    document.querySelectorAll('input[name="rating"]').forEach(radio => {
+        radio.checked = false;
+    });
+
+    isFilter = false;
+    isSearch = false;
+
+    loadProducts(1);
 });
 
 
