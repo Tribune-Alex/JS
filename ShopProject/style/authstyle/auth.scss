@@ -99,6 +99,12 @@
             border-radius: 7px;
             height: 45px;
         }
+        #lastname{
+            width: 230px;
+            border: 0.5px solid #1ECC5C;
+            border-radius: 7px;
+            height: 45px;
+        }
 
     }
 
@@ -140,7 +146,7 @@
             align-items: center;
 
             #email,
-            #password {
+            #password,#code,#password2 {
                 width: 500px;
                 height: 45px;
                 border-radius: 7px;
