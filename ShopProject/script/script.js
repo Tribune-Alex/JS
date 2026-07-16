@@ -3,6 +3,10 @@ const categoriesMenu = document.getElementById("categoriesMenu");
 const contentcategory = document.getElementById("contentcategory");
 const getall = document.getElementById("getall");
 
+function signIN(){
+    window.location.href = "./pages/sighupsignin.html";
+}
+
 fetch("https://shopapi.stepacademy.ge/api/categories", {
     headers: {
         'x-api-key': apikey

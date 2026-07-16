@@ -313,9 +313,11 @@ async function login() {
 
 
         accessToken = data.data.accessToken;
+        console.log(accessToken);
 
         localStorage.setItem("accessToken", data.data.accessToken);
         localStorage.setItem("refreshToken", data.data.refreshToken);
+        
 
 
         if (data.user) {
