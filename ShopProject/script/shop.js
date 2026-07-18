@@ -8,8 +8,8 @@ const Rating4 = document.getElementById("rat4");
 const Rating3 = document.getElementById("rat3");
 const Rating2 = document.getElementById("rat2");
 const Rating1 = document.getElementById("rat1");
-const InStock=document.getElementById("instock");
-const reset=document.getElementById("resbut");
+const InStock = document.getElementById("instock");
+const reset = document.getElementById("resbut");
 const sortSelect = document.getElementById("sortttt");
 
 const filter = {
@@ -36,9 +36,9 @@ brandsearch.addEventListener('input', function () {
     filterProducts(1);
 });
 
-InStock.addEventListener("change",function(){
-    filter.InStock=this.checked;
-    isFilter=true;
+InStock.addEventListener("change", function () {
+    filter.InStock = this.checked;
+    isFilter = true;
     filterProducts(1);
 })
 
@@ -138,19 +138,19 @@ search2.addEventListener('input', function () {
     }
 });
 
-reset.addEventListener("click",function(){
-    filter.Search= "",
-    filter.Brand= "",
-    filter.InStock= "",
-    filter.SortBy= "1",
-    filter.CategoryId= "",
-    filter.MinRating= 0,
-    filter.MinPrice= 1,
-    filter.MaxPrice= 9999,
-    filter.SortDescending= false,
-    filter.Take= 6,
-    filter.Page= 1
-    
+reset.addEventListener("click", function () {
+    filter.Search = "",
+        filter.Brand = "",
+        filter.InStock = "",
+        filter.SortBy = "1",
+        filter.CategoryId = "",
+        filter.MinRating = 0,
+        filter.MinPrice = 1,
+        filter.MaxPrice = 9999,
+        filter.SortDescending = false,
+        filter.Take = 6,
+        filter.Page = 1
+
 
 
     brandsearch.value = "";
@@ -160,7 +160,7 @@ reset.addEventListener("click",function(){
     search2.value = "";
     InStock.checked = false;
 
-    
+
     document.querySelectorAll('input[name="rating"]').forEach(radio => {
         radio.checked = false;
     });
@@ -202,6 +202,7 @@ async function filterProducts(pageNumber = 1) {
     pageCount = json.data.totalPages;
 
     viewProduct(json.data.items);
+    setUpCart();
     showPagination();
 };
 
@@ -210,14 +211,14 @@ function viewProduct(datas) {
     soft.innerHTML = "";
     datas.forEach(data => {
         soft.innerHTML += `
-                      <div class="card" id="carddesign" style="width: 18rem;">
+                      <div class="card" id="carddesign" data-id="${data.id}" style="width: 18rem;">
           <img class="size" src="${data.imageUrl}" alt="Card image cap">
            <div class="card-body">
            <p class="card-text"><span class="catname"> ${data.category.name}</span> <span class="doted"> ' </span> <span class="brandname"> ${data.brand}</span></p>
            <h5 class="card-title">${data.name}</h5>
-           <p class="card-text">${Math.floor(data.rating)}</p>
-           <p class="card-text">${data.price}</p>
-           <a href="#" class="btn btn-primary">Go somewhere</a>
+           <p class="card-text"><span>Rating:</span>${Math.floor(data.rating)}</p>
+           <p class="card-text"><span>Price:</span>${data.price}</p>
+           <button type="button" class="butadd">Add To Cart</button>
            </div>
          </div>
         `
@@ -242,6 +243,7 @@ async function searchProduct(pageNumber = 1) {
     pageCount = searchjson.data.totalPages;
 
     searchProducts(searchjson.data.items);
+    setUpCart();
     showPagination();
 }
 
@@ -250,14 +252,14 @@ function searchProducts(founds) {
     soft.innerHTML = "";
     founds.forEach(found => {
         soft.innerHTML += ` 
-              <div class="card" id="carddesign" style="width: 18rem;">
+              <div class="card" id="carddesign" data-id="${found.id}" style="width: 18rem;">
           <img class="size" src="${found.imageUrl}" alt="Card image cap">
            <div class="card-body">
            <p class="card-text"><span class="catname"> ${found.category.name}</span> <span class="doted"> ' </span> <span class="brandname"> ${found.brand}</span></p>
            <h5 class="card-title">${found.name}</h5>
-           <p class="card-text">${Math.floor(found.rating)}</p>
-           <p class="card-text">${found.price}</p>
-           <a href="#" class="btn btn-primary">Go somewhere</a>
+           <p class="card-text"><span>Rating:</span>${Math.floor(found.rating)}</p>
+           <p class="card-text"><span>Price:</span>${found.price}</p>
+           <button type="button" class="butadd">Add To Cart</button>
            </div>
          </div>
         `
@@ -275,6 +277,7 @@ async function loadCategories() {
 
     const catjson = await load.json();
     showCategories(catjson.data);
+    setUpCart();
 }
 
 function showCategories(files) {
@@ -331,6 +334,7 @@ async function loadProducts(pageNumber) {
     pageCount = json.data.totalPages;
 
     showProduct(json.data.items);
+    setUpCart();
     showPagination();
 };
 
@@ -339,14 +343,14 @@ function showProduct(items) {
     items.innerHTML = "";
     items.forEach(item => {
         soft.innerHTML += `
-        <div class="card" id="carddesign" style="width: 18rem;">
+        <div class="card" id="carddesign" data-id="${item.id}" style="width: 18rem;">
           <img class="size" src="${item.imageUrl}" alt="Card image cap">
            <div class="card-body">
            <p class="card-text"><span class="catname"> ${item.category.name}</span> <span class="doted"> ' </span> <span class="brandname"> ${item.brand}</span></p>
            <h5 class="card-title">${item.name}</h5>
-           <p class="card-text">${Math.floor(item.rating)}</p>
-           <p class="card-text">${item.price}</p>
-           <a href="#" class="btn btn-primary">Go somewhere</a>
+           <p class="card-text"><span>Rating:</span>${Math.floor(item.rating)}</p>
+           <p class="card-text"><span>Price:</span>${item.price}</p>
+           <button type="button" class="butadd">Add To Cart</button>
            </div>
          </div>
         `
@@ -422,4 +426,90 @@ function showPagination() {
 
 loadProducts(1);
 
+
+function setUpCart() {
+    const token = localStorage.getItem("accessToken")
+    if (!token) {
+        const buttons = document.querySelectorAll(".butadd");
+        buttons.forEach((button => {
+            button.addEventListener("click", async (e) => {
+                window.location.href = "./sighupsignin.html";
+            })
+        }))
+    }
+
+    const buttons = document.querySelectorAll(".butadd");
+
+    buttons.forEach((button => {
+        button.addEventListener("click", async (e) => {
+            const card = e.target.closest(".card");
+            const itemId = parseInt(card.dataset.id);
+
+            const tocart = {
+                productId: itemId,
+                quantity: 1
+            }
+
+            console.log(tocart);
+            try {
+                const cartRes = await fetch("https://shopapi.stepacademy.ge/api/cart?Take=3&Page=1", {
+                    method: "GET",
+                    headers: {
+                        accept: "text/plain",
+                        "x-api-key": apikey,
+                        "Authorization": `Bearer ${token}`
+                    }
+                })
+                const cartItems = await cartRes.json();
+                const existingItem = cartItems.data.items.find(
+                    item => item.product.id === itemId
+                );
+
+                let endpoint = "";
+                let method = "";
+
+                if (existingItem) {
+                    tocart.quantity += existingItem.quantity;
+                    endpoint = "https://shopapi.stepacademy.ge/api/cart/edit-quantity"
+                    method = "PUT"
+                } else {
+                    endpoint = "https://shopapi.stepacademy.ge/api/cart/add-to-cart"
+                    method = "POST"
+                }
+
+                const res = await fetch(endpoint, {
+                    method: method,
+                    headers: {
+                        "accept": "*/*",
+                        "Content-Type": "application/json",
+                        "x-api-key": apikey,
+                        "Authorization": `Bearer ${token}`
+                    },
+                    body: JSON.stringify(
+                        existingItem
+                            ? {
+                                itemId: existingItem.id,
+                                quantity: tocart.quantity
+                            }
+                            : tocart
+                    )
+                });
+
+                if(res.ok){
+                    console.log("წარმატებით დასრულდა")
+                }else{
+                    throw new Error("შეცდომა მოხდა");
+                    
+                }
+
+
+            } catch (error) {
+                console.error(error)
+                alert("შეცდომა მოხდა")
+
+            }
+        })
+    }))
+
+};
 

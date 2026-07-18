@@ -1,27 +1,151 @@
 const apikey = "413d0fd3-56b2-4f27-94d5-b2337cff7794";
-const categoriesMenu = document.getElementById("categoriesMenu");
 const contentcategory = document.getElementById("contentcategory");
 const getall = document.getElementById("getall");
+const navbar = document.getElementById("navforjs");
 
-function signIN(){
+
+async function getUser() {
+    const token = localStorage.getItem("accessToken");
+
+    if (!token) {
+        const categoriesMenu = document.getElementById("categoriesMenu");
+
+        loadCategories(categoriesMenu);
+        return;
+    }
+
+    try {
+        const res = await fetch("https://shopapi.stepacademy.ge/api/users/me", {
+            method: "GET",
+            headers: {
+                "x-api-key": apikey,
+                "Authorization": `Bearer ${token}`
+            }
+        });
+        const data = await res.json();
+        console.log(data);
+        navbar.innerHTML = "";
+        navbar.innerHTML += `
+        <nav class="navbar navbar-expand-lg navbar-dark bg-white sticky-top">
+            <div class="container">
+
+                <a class="navbar-brand fw-bold" href="index.html">
+                    <svg _ngcontent-ng-c3188417508="" xmlns="http://www.w3.org/2000/svg" id="logo" width="35"
+                        height="35" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <rect _ngcontent-ng-c3188417508="" x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                        <path _ngcontent-ng-c3188417508="" d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                    </svg>
+                    <span class="steptech">STEP TECH</span>
+                </a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+
+                    <ul class="navbar-nav ms-5">
+
+                        <li class="nav-item">
+                            <a class="nav-link active" href="index.html">
+                                Home
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link active" href="/ShopProject/pages/shop.html">
+                                Shop
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link active" href="/ShopProject/pages/shop.html">
+                                Cart
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link active" href="/ShopProject/pages/shop.html">
+                                Favourites
+                            </a>
+                        </li>
+
+                        <!-- Categories -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="categoriesDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Categories
+                            </a>
+
+                            <ul class="dropdown-menu" id="categoriesMenu" aria-labelledby="categoriesDropdown">
+
+                               
+
+                            </ul>
+                        </li>
+
+
+
+                    </ul>
+
+                    <form class="d-flex ">
+                        <input class="form-control me-2" type="search" id="search" placeholder="Search products..."
+                            id="search">
+
+                        <li class="nav-item">
+                            <a class="nav-link active" href="/ShopProject/pages/shop.html">
+                               <span>Welcome</span> ${data.data.firstName}
+                            </a>
+                        </li>
+
+                        <button class="btn-outline-dark" type="button" onclick="logOut()">
+                            Log Out
+                        </button>
+                    </form>
+
+                </div>
+
+            </div>
+        </nav>
+        `
+
+        const categoriesMenu = document.getElementById("categoriesMenu");
+
+        loadCategories(categoriesMenu);
+
+    } catch (err) {
+        console.log(err);
+    }
+};
+
+getUser();
+
+
+
+
+
+function signIN() {
     window.location.href = "./pages/sighupsignin.html";
 }
+async function loadCategories(categoriesMenu) {
+    fetch("https://shopapi.stepacademy.ge/api/categories", {
+        headers: {
+            'x-api-key': apikey
+        }
+    })
+        .then(res => res.json())
+        .then(result => {
 
-fetch("https://shopapi.stepacademy.ge/api/categories", {
-    headers: {
-        'x-api-key': apikey
-    }
-})
-    .then(res => res.json())
-    .then(result => {
+            const categories = result.data;
+            const contentcategories = result.data.slice(0, 4);
 
-        const categories = result.data;
-        const contentcategories = result.data.slice(0, 4);
+            categoriesMenu.innerHTML = "";
 
-        categoriesMenu.innerHTML = "";
-
-        categories.forEach(category => {
-            categoriesMenu.innerHTML += `
+            categories.forEach(category => {
+                categoriesMenu.innerHTML += `
                 <li>
                     <a class="dropdown-item" href="#" onclick="filter(${category.id})">
                         ${category.name} <span class="counts"> ${category.productCount}</span>
@@ -29,10 +153,10 @@ fetch("https://shopapi.stepacademy.ge/api/categories", {
                 </li>
             `;
 
-        });
+            });
 
-        contentcategories.forEach(cat => {
-            contentcategory.innerHTML += `<div class="cat">
+            contentcategories.forEach(cat => {
+                contentcategory.innerHTML += `<div class="cat">
             <div class="cat-item"><img class="img" src="${cat.imageUrl}" alt="product">
             <div class="specs">
                 <p class="name">${cat.name}</p>
@@ -45,10 +169,12 @@ fetch("https://shopapi.stepacademy.ge/api/categories", {
             
             </div>
             </div>`
-        })
+            })
 
-    })
-    .catch(err => console.error(err));
+        })
+        .catch(err => console.error(err));
+}
+
 
 
 function getAll() {
@@ -117,3 +243,8 @@ function showProducts(items) {
 }
 
 loadproducts();
+
+function logOut(){
+    localStorage.clear();
+    window.location.href = "./index.html";
+}
