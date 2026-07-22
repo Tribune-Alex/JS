@@ -1,0 +1,34 @@
+body {
+  background-color: white;
+  color: black;
+}
+body.dark-mode {
+  background-color: #121212;
+  color: white;
+}
+body .visitors {
+  width: 150px;
+  height: 50px;
+  border: 1px solid red;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+body #result {
+  width: 350px;
+  height: 30px;
+  border: 1px solid red;
+  margin-top: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+body #article {
+  width: 250px;
+  height: 150px;
+  overflow: scroll;
+}/*# sourceMappingURL=style.css.map */
