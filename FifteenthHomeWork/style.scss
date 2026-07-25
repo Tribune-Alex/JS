@@ -1,0 +1,145 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 1000px;
+    background-image: url(./img/pngtree-the-colorful-background-mixed-background-picture-image_15689445.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+
+    .header {
+        font-size: 48px;
+        color: blueviolet
+    }
+
+    #box {
+        width: 100%;
+        height: 550px;
+        display: grid;
+        grid-template-columns: 320px 1fr;
+        gap: 80px;
+        align-items: start;
+
+        .answer {
+            position: absolute;
+            top: 350px;
+            left: 37%;
+            transform: translateX(-50%);
+
+            width: 400px;
+            height: 400px;
+
+            opacity: 0;
+            transition: opacity .3s ease;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+        }
+
+        .answer.show {
+            opacity: 1;
+        }
+
+        #table {
+            display: flex;
+            flex-direction: column;
+            
+
+            .dashboard {
+                display: block;
+                
+            }
+
+            #level,
+            #lifes,
+            #correctans,
+            #currentcolor,
+            #score {
+                width: 250px;
+                height: 35px;
+                background-color: white;
+                border: 1px solid gray;
+                margin-top: 5px;
+                margin-left: 20px;
+                border-radius: 15px;
+                text-align: center;
+            }
+        }
+
+        label {
+            margin-left: 20px;
+            font-size: 18px;
+            color: white;
+            font-weight: 700;
+            margin-top: 25px;
+            border: 1px solid gray;
+            background-color: blueviolet;
+            border-radius: 15px;
+            width: 155px;
+
+        }
+
+        #buttons {
+            display: none;
+            flex-direction: column;
+            margin-top: 15px;
+            margin-left: 20px;
+            justify-content: center;
+            align-items: center;
+
+            .but {
+                margin-top: 10px;
+                border-radius: 15px;
+                width: 155px;
+                height: 35px;
+                background-color: blueviolet;
+                color: white;
+            }
+        }
+
+        .game {
+            display: grid;
+            grid-template-columns: repeat(3, 120px);
+            gap: 15px;
+
+            justify-content: center;
+            align-content: start;
+
+            position: relative;
+            padding-top: 130px;
+
+            .box {
+                width: 120px;
+                height: 120px;
+                border-radius: 15px;
+                cursor: pointer;
+                transition: transform .2s;
+            }
+
+            .box:hover {
+                transform: scale(1.05);
+            }
+        }
+    }
+
+    .startover{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        margin-top: 25px;
+        #start{
+            border-radius: 15px;
+            width: 125px;
+            height: 35px;
+            background-color: green;
+            color: white;
+            .sp{
+                display: none;
+            }
+        }
+    }
+}
